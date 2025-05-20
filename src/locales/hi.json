@@ -1,0 +1,25 @@
+{
+    "header": {
+        "searchPlaceholder": "रेस्तरां में खोजें",
+        "addressPlaceholder": "पता दर्ज करें",
+        "login": "लॉग इन",
+        "language": "भाषा"
+    },
+    "languages": {
+        "english": "अंग्रेज़ी",
+        "bengali": "बंगाली",
+        "hindi": "हिंदी"
+    },
+    "searchPopup": {
+        "title": "मेनू खोजें",
+        "subtitle": "रेस्तरां में आइटम ढूंढें"
+    },
+    "addressPopup": {
+        "title": "डिलीवरी पता दर्ज करें",
+        "subtitle": "वरना हम कैसे जानेंगे कि कहां डिलीवर करना है?",
+        "inputPlaceholder": "गली और पता नंबर दर्ज करें"
+    },
+    "general": {
+        "ok": "ठीक है"
+    }
+}

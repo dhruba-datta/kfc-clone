@@ -1,0 +1,25 @@
+{
+    "header": {
+        "searchPlaceholder": "Find in the restaurant",
+        "addressPlaceholder": "Enter address",
+        "login": "Login",
+        "language": "Language"
+    },
+    "languages": {
+        "english": "English",
+        "bengali": "Bengali",
+        "hindi": "Hindi"
+    },
+    "searchPopup": {
+        "title": "Search Menu",
+        "subtitle": "Find items in the restaurant"
+    },
+    "addressPopup": {
+        "title": "Enter delivery address",
+        "subtitle": "Or else how will we know where to deliver?",
+        "inputPlaceholder": "Enter street and address number"
+    },
+    "general": {
+        "ok": "OK"
+    }
+}

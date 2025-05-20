@@ -17,7 +17,6 @@ import {
   faTrash,
   faBars,
   faTimes,
-  // Add new icons for footer
   faBuilding,
   faFileSignature,
   faAddressBook,
@@ -34,14 +33,17 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
-  // Add brand icons for footer
   faFacebookF,
   faInstagram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 import { cartStore } from "./store/cart";
-import Cookies from "js-cookie";
+import { createI18n } from "vue-i18n";
+import enMessages from "./locales/en.json";
+import bnMessages from "./locales/bn.json";
+import hiMessages from "./locales/hi.json";
 
+// Add icons to library
 library.add(
   faUser,
   faLocationDot,
@@ -56,7 +58,6 @@ library.add(
   faGithub,
   faBars,
   faTimes,
-  // Add new icons to library
   faBuilding,
   faFileSignature,
   faAddressBook,
@@ -75,7 +76,21 @@ library.add(
   faTwitter
 );
 
+// Create i18n instance
+const i18n = createI18n({
+  legacy: false,
+  locale: localStorage.getItem("lang") || "en",
+  fallbackLocale: "en",
+  messages: {
+    en: enMessages,
+    bn: bnMessages,
+    hi: hiMessages,
+  },
+});
+
 const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.provide("cartStore", cartStore);
-app.use(router).mount("#app");
+app.use(router);
+app.use(i18n);
+app.mount("#app");

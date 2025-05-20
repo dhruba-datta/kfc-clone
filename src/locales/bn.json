@@ -1,0 +1,25 @@
+{
+    "header": {
+        "searchPlaceholder": "রেস্তোরাঁয় খুঁজুন",
+        "addressPlaceholder": "ঠিকানা লিখুন",
+        "login": "লগইন",
+        "language": "ভাষা"
+    },
+    "languages": {
+        "english": "ইংরেজি",
+        "bengali": "বাংলা",
+        "hindi": "হিন্দি"
+    },
+    "searchPopup": {
+        "title": "মেনু অনুসন্ধান করুন",
+        "subtitle": "রেস্তোরাঁয় আইটেম খুঁজুন"
+    },
+    "addressPopup": {
+        "title": "ডেলিভারি ঠিকানা লিখুন",
+        "subtitle": "না হলে আমরা জানবো কিভাবে কোথায় ডেলিভারি দেব?",
+        "inputPlaceholder": "রাস্তা এবং ঠিকানা নম্বর লিখুন"
+    },
+    "general": {
+        "ok": "ঠিক আছে"
+    }
+}
