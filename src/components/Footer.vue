@@ -25,7 +25,7 @@
 
         <!-- Author Info -->
         <div class="mt-6 md:mt-0 text-center md:text-right">
-          <p class="mb-2 text-gray-500">&copy; 2025 KFC Manasa. All rights reserved.</p>
+          <p class="mb-2 text-gray-500">&copy; 2025 KFC. All rights reserved.</p>
           <a
             href="https://dhruba-datta.netlify.app/"
             target="_blank"
