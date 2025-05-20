@@ -1,7 +1,7 @@
 <template>
   <div class="flex flex-col lg:flex-row min-h-screen bg-yandexLight">
     <!-- Modern Sticky Menu Sidebar (Desktop) -->
-    <aside class="hidden lg:block lg:w-1/5 sticky top-20 h-screen overflow-y-auto z-40">
+    <aside class="hidden lg:block lg:w-[14%] sticky top-20 h-screen overflow-y-auto z-40">
       <nav class="bg-gradient-to-br from-white via-gray-100 to-gray-200 p-6 rounded-r-3xl shadow-xl h-full">
         <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b border-gray-300 pb-3 tracking-wide">Menu</h3>
         <ul class="space-y-3">
@@ -63,12 +63,12 @@ export default {
     Cart
   },
   data() {
-  return {
-    activeSection: '',
-    categories: ['Chicken', 'Deals', 'Burgers', 'Box Meals', 'Snacks', 'Beverages', 'Dips'],
-    menuItems: menuItems
-  };
-},
+    return {
+      activeSection: '',
+      categories: ['Chicken', 'Deals', 'Burgers', 'Box Meals', 'Snacks', 'Beverages', 'Dips'],
+      menuItems: menuItems
+    };
+  },
   setup() {
     const cartStore = inject('cartStore');
     return {
@@ -95,17 +95,17 @@ export default {
       this.activeSection = current;
     },
     getCategoryIcon(category) {
-    const icons = {
-      Chicken: 'drumstick',
-      Deals: 'tags',
-      Burgers: 'hamburger',
-      'Box Meals': 'box-open',
-      Snacks: 'cookie-bite',
-      Beverages: 'glass-water',
-      Dips: 'bowl-spoon'
-    };
-    return ['fas', icons[category] || 'utensils'];
-  }
+      const icons = {
+        Chicken: 'drumstick',
+        Deals: 'tags',
+        Burgers: 'hamburger',
+        'Box Meals': 'box-open',
+        Snacks: 'cookie-bite',
+        Beverages: 'glass-water',
+        Dips: 'bowl-spoon'
+      };
+      return ['fas', icons[category] || 'utensils'];
+    }
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
@@ -122,3 +122,4 @@ export default {
   scroll-margin-top: 80px;
 }
 </style>
+s
