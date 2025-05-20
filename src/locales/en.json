@@ -19,7 +19,46 @@
         "subtitle": "Or else how will we know where to deliver?",
         "inputPlaceholder": "Enter street and address number"
     },
+    "underDevelopmentPopup": {
+        "title": "Feature Under Development",
+        "message": "This feature is currently under development. Please check back later!"
+    },
     "general": {
         "ok": "OK"
+    },
+    "footer": {
+        "developedBy": "Developed by",
+        "sourceCode": "Source Code",
+        "contact": "Contact Us",
+        "privacy": "Privacy Policy",
+        "terms": "Terms & Conditions",
+        "faq": "FAQ",
+        "about": "About Us",
+        "careers": "Careers",
+        "applyNow": "Apply Now",
+        "sustainability": "Sustainability",
+        "community": "Community",
+        "franchising": "Franchising",
+        "investorRelations": "Investor Relations",
+        "email": "Email",
+        "phone": "Phone",
+        "address": "Address"
+    },
+    "home": {
+        "exploreMenu": "Explore Our Menu"
+    },
+    "cart": {
+        "yourCart": "Your Cart",
+        "item": "Item",
+        "price": "Price",
+        "quantity": "Quantity",
+        "total": "Total",
+        "emptyCart": "Your cart is empty.",
+        "continueShopping": "Continue Shopping",
+        "proceedToCheckout": "Proceed to Checkout",
+        "removeItem": "Remove Item"
+    },
+    "menuItem": {
+        "addToCart": "Add to Cart"
     }
 }

@@ -1,6 +1,6 @@
 {
     "header": {
-        "searchPlaceholder": "রেস্তোরাঁয় খুঁজুন",
+        "searchPlaceholder": "রেস্তোরাঁয় খুঁজুন",
         "addressPlaceholder": "ঠিকানা লিখুন",
         "login": "লগইন",
         "language": "ভাষা"
@@ -12,14 +12,53 @@
     },
     "searchPopup": {
         "title": "মেনু অনুসন্ধান করুন",
-        "subtitle": "রেস্তোরাঁয় আইটেম খুঁজুন"
+        "subtitle": "রেস্তোরাঁয় আইটেম খুঁজুন"
     },
     "addressPopup": {
         "title": "ডেলিভারি ঠিকানা লিখুন",
         "subtitle": "না হলে আমরা জানবো কিভাবে কোথায় ডেলিভারি দেব?",
         "inputPlaceholder": "রাস্তা এবং ঠিকানা নম্বর লিখুন"
     },
+    "underDevelopmentPopup": {
+        "title": "বৈশিষ্ট্য উন্নয়নাধীন",
+        "message": "এই বৈশিষ্ট্যটি বর্তমানে উন্নয়নাধীন আছে। অনুগ্রহ করে পরে আবার চেষ্টা করুন!"
+    },
     "general": {
         "ok": "ঠিক আছে"
+    },
+    "footer": {
+        "developedBy": "দ্বারা তৈরি",
+        "sourceCode": "সোর্স কোড",
+        "contact": "যোগাযোগ করুন",
+        "privacy": "গোপনীয়তা নীতি",
+        "terms": "শর্তাবলী",
+        "faq": "প্রায়শই জিজ্ঞাসিত প্রশ্নাবলী",
+        "about": "আমাদের সম্পর্কে",
+        "careers": "ক্যারিয়ার",
+        "applyNow": "এখনই আবেদন করুন",
+        "sustainability": "স্থায়িত্ব",
+        "community": "সম্প্রদায়",
+        "franchising": "ফ্র্যাঞ্চাইজিং",
+        "investorRelations": "বিনিয়োগকারী সম্পর্ক",
+        "email": "ইমেইল",
+        "phone": "ফোন",
+        "address": "ঠিকানা"
+    },
+    "home": {
+        "exploreMenu": "আমাদের মেনু অন্বেষণ করুন"
+    },
+    "cart": {
+        "yourCart": "আপনার কার্ট",
+        "item": "আইটেম",
+        "price": "মূল্য",
+        "quantity": "পরিমাণ",
+        "total": "মোট",
+        "emptyCart": "আপনার কার্ট খালি।",
+        "continueShopping": "কেনাকাটা চালিয়ে যান",
+        "proceedToCheckout": "চেকআউট এগিয়ে যান",
+        "removeItem": "আইটেম সরান"
+    },
+    "menuItem": {
+        "addToCart": "কার্টে যোগ করুন"
     }
 }

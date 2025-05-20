@@ -30,6 +30,7 @@ import {
   faCommentDots,
   faCopyright,
   faCode,
+  faHourglassHalf, // ADDED: Import the hourglass icon
 } from "@fortawesome/free-solid-svg-icons";
 import {
   faGithub,
@@ -39,6 +40,8 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 import { cartStore } from "./store/cart";
 import { createI18n } from "vue-i18n";
+
+// Import your translation files
 import enMessages from "./locales/en.json";
 import bnMessages from "./locales/bn.json";
 import hiMessages from "./locales/hi.json";
@@ -73,16 +76,17 @@ library.add(
   faCode,
   faFacebookF,
   faInstagram,
-  faTwitter
+  faTwitter,
+  faHourglassHalf // ADDED: Add the hourglass icon to the library
 );
 
 // Create i18n instance
 const i18n = createI18n({
-  legacy: false,
-  locale: localStorage.getItem("lang") || "en",
-  fallbackLocale: "en",
+  legacy: false, // Recommended for Vue 3
+  locale: localStorage.getItem("lang") || "en", // Get language from local storage or default to 'en'
+  fallbackLocale: "en", // Fallback if a translation is missing
   messages: {
-    en: enMessages,
+    en: enMessages, // Assign imported messages
     bn: bnMessages,
     hi: hiMessages,
   },
@@ -92,5 +96,7 @@ const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);
 app.provide("cartStore", cartStore);
 app.use(router);
-app.use(i18n);
+app.use(i18n); // Use the correctly configured i18n instance
 app.mount("#app");
+
+// REMOVED THE DUPLICATE/CONFLICTING I18N SETUP FROM HERE

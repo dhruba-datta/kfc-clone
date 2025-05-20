@@ -2,15 +2,12 @@
   <header class="bg-white border-b border-gray-200 fixed top-0 left-0 w-full z-50">
     <div class="container mx-auto px-4">
       <div class="flex items-center justify-between h-20">
-        <!-- Left side content remains the same -->
         <div class="flex items-center md:space-x-6 space-x-2 w-full max-w-3xl">
-          <!-- Logo -->
           <div class="flex items-center space-x-2 flex-shrink-0">
             <font-awesome-icon icon="fa-solid fa-utensils" class="text-red-600 text-xl" />
             <span class="text-red-600 font-bold text-2xl">KFC</span>
           </div>
 
-          <!-- Search Icon (Mobile) -->
           <button 
             @click="openSearchPopup"
             class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg bg-gray-50 hover:bg-red-50 transition-colors duration-150"
@@ -18,7 +15,6 @@
             <font-awesome-icon icon="fa-solid fa-magnifying-glass" class="h-4 w-4 text-gray-400" />
           </button>
 
-          <!-- Search Input (Desktop) -->
           <div class="relative flex-1 hidden md:block">
             <input
               v-model="searchQuery"
@@ -31,7 +27,6 @@
               icon="fa-solid fa-magnifying-glass" 
               class="absolute left-3 top-3.5 h-4 w-4 text-gray-400"
             />
-            <!-- Search Results Dropdown -->
             <div v-if="filteredItems.length > 0" class="absolute top-full left-0 w-full bg-white border border-gray-200 mt-1 rounded-lg shadow-lg z-50">
               <ul>
                 <li v-for="item in filteredItems" :key="item.id" class="px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer">
@@ -41,7 +36,6 @@
             </div>
           </div>
 
-          <!-- Address Button -->
           <button 
             @click="openAddressPopup"
             class="flex items-center space-x-1 text-sm text-gray-800 hover:text-red-600 bg-gray-50 hover:bg-red-50 px-2 py-2 md:px-4 md:py-2.5 rounded-lg transition-colors duration-150 w-[140px] md:w-[200px]"
@@ -51,9 +45,7 @@
           </button>
         </div>
 
-        <!-- Right side - Language & Login -->
         <div class="flex items-center space-x-2">
-          <!-- Language Selector -->
           <div class="relative">
             <button 
               @click="showLanguageDropdown = !showLanguageDropdown"
@@ -63,7 +55,6 @@
               <span class="hidden md:inline">{{ $t('header.language') }}</span>
             </button>
 
-            <!-- Language Dropdown -->
             <div 
               v-show="showLanguageDropdown"
               class="absolute right-0 mt-2 w-40 bg-white rounded-lg shadow-lg py-1 z-50 border border-gray-200"
@@ -83,15 +74,16 @@
             </div>
           </div>
 
-          <!-- Login Button -->
-          <button class="flex items-center space-x-2 text-sm text-gray-800 hover:text-red-600 bg-gray-50 hover:bg-red-50 p-2 md:px-4 md:py-2.5 rounded-lg transition-colors duration-150">
+          <button 
+            @click="showUnderDevelopmentPopup = true"
+            class="flex items-center space-x-2 text-sm text-gray-800 hover:text-red-600 bg-gray-50 hover:bg-red-50 p-2 md:px-4 md:py-2.5 rounded-lg transition-colors duration-150"
+          >
             <font-awesome-icon icon="fa-solid fa-user" class="h-4 w-4 text-red-600" />
             <span class="hidden sm:inline">{{ $t('header.login') }}</span>
           </button>
         </div>
       </div>
 
-      <!-- Search Popup (Mobile) -->
       <div 
         v-if="showSearchPopup" 
         class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
@@ -131,7 +123,6 @@
         </div>
       </div>
 
-      <!-- Address Popup -->
       <div 
         v-if="showAddressPopup" 
         class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
@@ -171,6 +162,29 @@
           </button>
         </div>
       </div>
+
+      <div 
+        v-if="showUnderDevelopmentPopup" 
+        class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+      >
+        <div class="bg-white rounded-lg w-full max-w-sm p-6 text-center relative">
+          <button 
+            @click="showUnderDevelopmentPopup = false" 
+            class="absolute top-4 right-4 text-gray-600 hover:text-gray-800"
+          >
+            <font-awesome-icon icon="fa-solid fa-times" class="h-5 w-5" />
+          </button>
+          <font-awesome-icon icon="fa-solid fa-hourglass-half" class="text-red-600 text-5xl mb-4" />
+          <h2 class="text-xl font-semibold mb-2">{{ $t('underDevelopmentPopup.title') }}</h2>
+          <p class="text-sm text-gray-600 mb-4">{{ $t('underDevelopmentPopup.message') }}</p>
+          <button 
+            @click="showUnderDevelopmentPopup = false"
+            class="mt-4 bg-red-600 hover:bg-red-700 text-white font-bold py-2 px-4 rounded-lg transition-colors duration-150"
+          >
+            {{ $t('general.ok') }}
+          </button>
+        </div>
+      </div>
     </div>
   </header>
 </template>
@@ -194,6 +208,7 @@ export default {
       showLanguageDropdown: false,
       showAddressPopup: false,
       showSearchPopup: false,
+      showUnderDevelopmentPopup: false, // New data property for the under development popup
       tempAddress: '',
       deliveryAddress: '',
       searchQuery: '',
@@ -211,7 +226,6 @@ export default {
       localStorage.setItem('lang', lang)
       this.showLanguageDropdown = false
     },
-    // ... rest of your methods remain the same
     handleClickOutside(event) {
       if (!this.$el.contains(event.target)) {
         this.showLanguageDropdown = false;
@@ -321,7 +335,6 @@ export default {
 </script>
 
 <style scoped>
-/* Your existing styles remain the same */
 body {
   padding-top: 80px;
 }

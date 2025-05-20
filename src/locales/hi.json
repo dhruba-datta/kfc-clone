@@ -19,7 +19,46 @@
         "subtitle": "वरना हम कैसे जानेंगे कि कहां डिलीवर करना है?",
         "inputPlaceholder": "गली और पता नंबर दर्ज करें"
     },
+    "underDevelopmentPopup": {
+        "title": "फ़ीचर विकास के अधीन है",
+        "message": "यह फ़ीचर वर्तमान में विकास के अधीन है। कृपया बाद में जाँच करें!"
+    },
     "general": {
         "ok": "ठीक है"
+    },
+    "footer": {
+        "developedBy": "द्वारा विकसित",
+        "sourceCode": "सोर्स कोड",
+        "contact": "हमसे संपर्क करें",
+        "privacy": "गोपनीयता नीति",
+        "terms": "नियम और शर्तें",
+        "faq": "अक्सर पूछे जाने वाले प्रश्न",
+        "about": "हमारे बारे में",
+        "careers": "कैरियर",
+        "applyNow": "अभी आवेदन करें",
+        "sustainability": "स्थिरता",
+        "community": "समुदाय",
+        "franchising": "फ़्रैंचाइज़िंग",
+        "investorRelations": "निवेशक संबंध",
+        "email": "ईमेल",
+        "phone": "फ़ोन",
+        "address": "पता"
+    },
+    "home": {
+        "exploreMenu": "हमारा मेनू देखें"
+    },
+    "cart": {
+        "yourCart": "आपका कार्ट",
+        "item": "आइटम",
+        "price": "मूल्य",
+        "quantity": "मात्रा",
+        "total": "कुल",
+        "emptyCart": "आपका कार्ट खाली है।",
+        "continueShopping": "खरीदना जारी रखें",
+        "proceedToCheckout": "चेकआउट के लिए आगे बढ़ें",
+        "removeItem": "आइटम हटाएँ"
+    },
+    "menuItem": {
+        "addToCart": "कार्ट में जोड़ें"
     }
 }
