@@ -32,9 +32,10 @@
             rel="noopener noreferrer"
             class="inline-flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-1.5 rounded-full transition"
           >
-            Created by Dhruba Datta
-            <font-awesome-icon icon="fa-brands fa-github" />
-          </a>
+            Created by 
+            <font-awesome-icon icon="fa-solid fa-user" />
+            Dhruba Datta
+           </a>
         </div>
       </div>
     </div>
