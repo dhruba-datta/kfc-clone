@@ -1,4 +1,57 @@
 // File: src/data/menuItems.js
+
+import chicken01 from "../assets/chicken/01.webp";
+import chicken02 from "../assets/chicken/02.webp";
+import chicken03 from "../assets/chicken/03.webp";
+import chicken04 from "../assets/chicken/04.webp";
+import chicken05 from "../assets/chicken/05.webp";
+import chicken06 from "../assets/chicken/06.webp";
+import chicken07 from "../assets/chicken/07.webp";
+import chicken08 from "../assets/chicken/08.webp";
+
+import deals01 from "../assets/deals/01.webp";
+import deals02 from "../assets/deals/02.webp";
+import deals03 from "../assets/deals/03.webp";
+import deals04 from "../assets/deals/04.webp";
+import deals05 from "../assets/deals/05.webp";
+import deals06 from "../assets/deals/06.webp";
+import deals07 from "../assets/deals/07.webp";
+
+import burgers01 from "../assets/burgers/01.webp";
+import burgers02 from "../assets/burgers/02.webp";
+import burgers03 from "../assets/burgers/03.webp";
+import burgers04 from "../assets/burgers/04.webp";
+import burgers05 from "../assets/burgers/05.webp";
+import burgers06 from "../assets/burgers/06.webp";
+import burgers07 from "../assets/burgers/07.webp";
+import burgers08 from "../assets/burgers/08.webp";
+import burgers09 from "../assets/burgers/09.webp";
+import burgers10 from "../assets/burgers/10.webp";
+
+import box01 from "../assets/box/01.webp";
+import box02 from "../assets/box/02.webp";
+import box03 from "../assets/box/03.webp";
+import box04 from "../assets/box/04.webp";
+import box05 from "../assets/box/05.webp";
+import box06 from "../assets/box/06.webp";
+
+import snacks01 from "../assets/snacks/01.webp";
+import snacks02 from "../assets/snacks/02.webp";
+import snacks03 from "../assets/snacks/03.webp";
+import snacks04 from "../assets/snacks/04.webp";
+import snacks05 from "../assets/snacks/05.webp";
+import snacks06 from "../assets/snacks/06.webp";
+import snacks07 from "../assets/snacks/07.webp";
+import snacks08 from "../assets/snacks/08.webp";
+import snacks09 from "../assets/snacks/09.webp";
+
+import beverages01 from "../assets/beverages/01.webp";
+
+import dips01 from "../assets/dips/01.webp";
+import dips02 from "../assets/dips/02.webp";
+import dips03 from "../assets/dips/03.webp";
+import dips04 from "../assets/dips/04.webp";
+
 export const menuItems = [
   // ================== CHICKEN ==================
   {
@@ -6,7 +59,7 @@ export const menuItems = [
     name: "12 PC Hot & Crispy Chicken Bucket",
     category: "Chicken",
     price: 1799,
-    image: "/assets/chicken/01.webp",
+    image: chicken01,
     popular: true,
   },
   {
@@ -14,7 +67,7 @@ export const menuItems = [
     name: "10 Pc Leg Bucket Meal",
     category: "Chicken",
     price: 1699,
-    image: "/assets/chicken/02.webp",
+    image: chicken02,
     savePercentage: 28,
   },
   {
@@ -22,7 +75,7 @@ export const menuItems = [
     name: "10 Pc Leg Bucket",
     category: "Chicken",
     price: 1249,
-    image: "src/assets/chicken/03.webp",
+    image: chicken03,
     savePercentage: 34,
   },
   {
@@ -30,7 +83,7 @@ export const menuItems = [
     name: "8 PC Hot & Crispy Chicken Bucket",
     category: "Chicken",
     price: 1249,
-    image: "src/assets/chicken/04.webp",
+    image: chicken04,
     popular: true,
   },
   {
@@ -38,7 +91,7 @@ export const menuItems = [
     name: "5pc Leg Bucket Meal",
     category: "Chicken",
     price: 849,
-    image: "src/assets/chicken/05.webp",
+    image: chicken05,
     savePercentage: 29,
   },
   {
@@ -46,14 +99,14 @@ export const menuItems = [
     name: "4 Pc Chicken & Fries Meal",
     category: "Chicken",
     price: 869,
-    image: "src/assets/chicken/06.webp",
+    image: chicken06,
   },
   {
     id: 7,
     name: "5 pc Leg Bucket",
     category: "Chicken",
     price: 699,
-    image: "src/assets/chicken/07.webp",
+    image: chicken07,
     savePercentage: 27,
   },
   {
@@ -61,7 +114,7 @@ export const menuItems = [
     name: "2 PC Hot & Crispy Chicken",
     category: "Chicken",
     price: 329,
-    image: "src/assets/chicken/08.webp",
+    image: chicken08,
     popular: true,
   },
 
@@ -71,7 +124,7 @@ export const menuItems = [
     name: "Big Deal",
     category: "Deals",
     price: 1399,
-    image: "src/assets/deals/01.webp",
+    image: deals01,
     saveAmount: 262,
   },
   {
@@ -79,7 +132,7 @@ export const menuItems = [
     name: "Big 8 meal",
     category: "Deals",
     price: 1299,
-    image: "src/assets/deals/02.webp",
+    image: deals02,
     savePercentage: 25,
   },
   {
@@ -87,7 +140,7 @@ export const menuItems = [
     name: "KFC Big Treat",
     category: "Deals",
     price: 1099,
-    image: "src/assets/deals/03.webp",
+    image: deals03,
     savePercentage: 30,
   },
   {
@@ -95,7 +148,7 @@ export const menuItems = [
     name: "House Party Combo",
     category: "Deals",
     price: 999,
-    image: "src/assets/deals/04.webp",
+    image: deals04,
     savePercentage: 28,
   },
   {
@@ -103,7 +156,7 @@ export const menuItems = [
     name: "BIG 8",
     category: "Deals",
     price: 999,
-    image: "src/assets/deals/05.webp",
+    image: deals05,
     savePercentage: 30,
   },
   {
@@ -111,7 +164,7 @@ export const menuItems = [
     name: "Triple Treat",
     category: "Deals",
     price: 999,
-    image: "src/assets/deals/06.webp",
+    image: deals06,
     savePercentage: 25,
   },
   {
@@ -119,7 +172,7 @@ export const menuItems = [
     name: "Friendship Bucket",
     category: "Deals",
     price: 949,
-    image: "src/assets/deals/07.webp",
+    image: deals07,
     saveAmount: 285,
   },
 
@@ -129,7 +182,7 @@ export const menuItems = [
     name: "Hot Nashville Zinger",
     category: "Burgers",
     price: 399,
-    image: "src/assets/burgers/01.webp",
+    image: burgers01,
     newItem: true,
   },
   {
@@ -137,7 +190,7 @@ export const menuItems = [
     name: "2 Classic Zinger Meal",
     category: "Burgers",
     price: 999,
-    image: "src/assets/burgers/02.webp",
+    image: burgers02,
     saveAmount: 145,
   },
   {
@@ -145,14 +198,14 @@ export const menuItems = [
     name: "Mixed Zinger Doubles",
     category: "Burgers",
     price: 799,
-    image: "src/assets/burgers/03.webp",
+    image: burgers03,
   },
   {
     id: 19,
     name: "Double Zinger",
     category: "Burgers",
     price: 499,
-    image: "src/assets/burgers/04.webp",
+    image: burgers04,
     newItem: true,
   },
   {
@@ -160,21 +213,21 @@ export const menuItems = [
     name: "Spicy Zinger with Cheese",
     category: "Burgers",
     price: 404,
-    image: "src/assets/burgers/05.webp",
+    image: burgers05,
   },
   {
     id: 21,
     name: "Classic Zinger with Cheese",
     category: "Burgers",
     price: 384,
-    image: "src/assets/burgers/06.webp",
+    image: burgers06,
   },
   {
     id: 22,
     name: "Toasted Twister",
     category: "Burgers",
     price: 359,
-    image: "src/assets/burgers/07.webp",
+    image: burgers07,
     newItem: true,
   },
   {
@@ -182,21 +235,21 @@ export const menuItems = [
     name: "Spicy Zinger",
     category: "Burgers",
     price: 359,
-    image: "src/assets/burgers/08.webp",
+    image: burgers08,
   },
   {
     id: 24,
     name: "Classic Zinger",
     category: "Burgers",
     price: 339,
-    image: "src/assets/burgers/09.webp",
+    image: burgers09,
   },
   {
     id: 25,
     name: "Super Charger Burger",
     category: "Burgers",
     price: 309,
-    image: "src/assets/burgers/10.webp",
+    image: burgers10,
   },
 
   // ================== BOX MEALS ==================
@@ -205,7 +258,7 @@ export const menuItems = [
     name: "Zinger Box",
     category: "Box Meals",
     price: 529,
-    image: "src/assets/box/01.webp",
+    image: box01,
     savePercentage: 30,
   },
   {
@@ -213,7 +266,7 @@ export const menuItems = [
     name: "Super Charger Box",
     category: "Box Meals",
     price: 499,
-    image: "src/assets/box/02.webp",
+    image: box02,
     savePercentage: 31,
   },
   {
@@ -221,7 +274,7 @@ export const menuItems = [
     name: "Toasted Twister Box",
     category: "Box Meals",
     price: 529,
-    image: "src/assets/box/03.webp",
+    image: box03,
     savePercentage: 22,
   },
   {
@@ -229,7 +282,7 @@ export const menuItems = [
     name: "Hot Wings Box",
     category: "Box Meals",
     price: 419,
-    image: "src/assets/box/04.webp",
+    image: box04,
     savePercentage: 43,
   },
   {
@@ -237,7 +290,7 @@ export const menuItems = [
     name: "Strips Box",
     category: "Box Meals",
     price: 419,
-    image: "src/assets/box/05.webp",
+    image: box05,
     savePercentage: 43,
   },
   {
@@ -245,7 +298,7 @@ export const menuItems = [
     name: "Rice Box",
     category: "Box Meals",
     price: 319,
-    image: "src/assets/box/06.webp",
+    image: box06,
     savePercentage: 42,
   },
 
@@ -255,7 +308,7 @@ export const menuItems = [
     name: "Dips Bucket",
     category: "Snacks",
     price: 849,
-    image: "src/assets/snacks/01.webp",
+    image: snacks01,
     saveAmount: 197,
   },
   {
@@ -263,7 +316,7 @@ export const menuItems = [
     name: "4 PC Hot & Crispy Chicken",
     category: "Snacks",
     price: 629,
-    image: "src/assets/snacks/02.webp",
+    image: snacks02,
     popular: true,
   },
   {
@@ -271,21 +324,21 @@ export const menuItems = [
     name: "6 PC Boneless Strips",
     category: "Snacks",
     price: 529,
-    image: "src/assets/snacks/03.webp",
+    image: snacks03,
   },
   {
     id: 35,
     name: "6 PC Hot Wings",
     category: "Snacks",
     price: 329,
-    image: "src/assets/snacks/04.webp",
+    image: snacks04,
   },
   {
     id: 36,
     name: "2 PC Hot & Crispy Chicken",
     category: "Snacks",
     price: 329,
-    image: "src/assets/snacks/05.webp",
+    image: snacks05,
     popular: true,
   },
   {
@@ -293,28 +346,28 @@ export const menuItems = [
     name: "Chicken Popcorn Large",
     category: "Snacks",
     price: 299,
-    image: "src/assets/snacks/06.webp",
+    image: snacks06,
   },
   {
     id: 38,
     name: "3 Pc Boneless Chicken Strips",
     category: "Snacks",
     price: 279,
-    image: "src/assets/snacks/07.webp",
+    image: snacks07,
   },
   {
     id: 39,
     name: "Chicken Popcorn Medium",
     category: "Snacks",
     price: 239,
-    image: "src/assets/snacks/08.webp",
+    image: snacks08,
   },
   {
     id: 40,
     name: "Tangy Fries - Large",
     category: "Snacks",
     price: 219,
-    image: "src/assets/snacks/09.webp",
+    image: snacks09,
   },
 
   // ================== BEVERAGES ==================
@@ -323,7 +376,7 @@ export const menuItems = [
     name: "Aquafina Water",
     category: "Beverages",
     price: 20,
-    image: "src/assets/beverages/01.webp",
+    image: beverages01,
   },
 
   // ================== DIPS ==================
@@ -332,27 +385,27 @@ export const menuItems = [
     name: "Spicy Mayo",
     category: "Dips",
     price: 29,
-    image: "src/assets/dips/01.webp",
+    image: dips01,
   },
   {
     id: 43,
     name: "Mayonnaise",
     category: "Dips",
     price: 29,
-    image: "src/assets/dips/02.webp",
+    image: dips02,
   },
   {
     id: 44,
     name: "Nashville Sauce",
     category: "Dips",
     price: 29,
-    image: "src/assets/dips/03.webp",
+    image: dips03,
   },
   {
     id: 45,
     name: "Dynamite Mayo",
     category: "Dips",
     price: 29,
-    image: "src/assets/dips/04.webp",
+    image: dips04,
   },
 ];
