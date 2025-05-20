@@ -1,41 +1,88 @@
 <template>
-  <footer class="bg-gray-50 text-gray-600 text-sm border-t border-gray-200">
-    <div class="container mx-auto px-4 py-6">
-      <div class="md:flex md:justify-between md:items-start text-center md:text-left">
-        
-        <!-- Company Info Links -->
-        <div class="mb-6 md:mb-0">
-          <h2 class="font-semibold text-gray-800 mb-2">Company information</h2>
-          <div class="flex flex-wrap justify-center md:justify-start gap-4 text-gray-500">
-            <a href="#" class="hover:text-red-600">User agreement</a>
-            <a href="#" class="hover:text-red-600">Contacts</a>
-            <a href="#" class="hover:text-red-600">Delivery</a>
-            <a href="#" class="hover:text-red-600">FAQ</a>
-            <a href="#" class="hover:text-red-600">Become a partner</a>
-            <a href="#" class="hover:text-red-600">Become a courier</a>
-            <a href="#" class="hover:text-red-600">Eats for Business</a>
-            <a href="#" class="hover:text-red-600">Plastic recycling</a>
-            <a href="#" class="hover:text-red-600">Order food in the KFC app</a>
-            <a href="#" class="hover:text-red-600 flex items-center justify-center md:justify-start">
-              <font-awesome-icon icon="fa-solid fa-envelope" class="mr-1" />
+  <footer class="bg-gray-50 text-gray-600 border-t border-gray-200">
+    <div class="container mx-auto px-6 py-14">
+      <!-- Main Links Section -->
+      <div class="mb-14">
+        <h2 class="text-xl font-semibold text-gray-800 mb-8 flex items-center">
+          <font-awesome-icon icon="fa-solid fa-building" class="mr-3 text-red-500 text-2xl" />
+          <span class="text-2xl">Company Information</span>
+        </h2>
+        <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-6">
+          <div class="space-y-4">
+            <a href="#" class="flex items-center hover:text-red-600 transition-colors text-base">
+              <font-awesome-icon icon="fa-solid fa-file-signature" class="mr-3 w-5" />
+              User agreement
+            </a>
+            <a href="#" class="flex items-center hover:text-red-600 transition-colors text-base">
+              <font-awesome-icon icon="fa-solid fa-address-book" class="mr-3 w-5" />
+              Contacts
+            </a>
+          </div>
+          
+          <div class="space-y-4">
+            <a href="#" class="flex items-center hover:text-red-600 transition-colors text-base">
+              <font-awesome-icon icon="fa-solid fa-truck" class="mr-3 w-5" />
+              Delivery
+            </a>
+            <a href="#" class="flex items-center hover:text-red-600 transition-colors text-base">
+              <font-awesome-icon icon="fa-solid fa-question-circle" class="mr-3 w-5" />
+              FAQ
+            </a>
+          </div>
+          
+          <div class="space-y-4">
+            <a href="#" class="flex items-center hover:text-red-600 transition-colors text-base">
+              <font-awesome-icon icon="fa-solid fa-handshake" class="mr-3 w-5" />
+              Become a partner
+            </a>
+            <a href="#" class="flex items-center hover:text-red-600 transition-colors text-base">
+              <font-awesome-icon icon="fa-solid fa-bicycle" class="mr-3 w-5" />
+              Become a courier
+            </a>
+          </div>
+          
+          <div class="space-y-4">
+            <a href="#" class="flex items-center hover:text-red-600 transition-colors text-base">
+              <font-awesome-icon icon="fa-solid fa-briefcase" class="mr-3 w-5" />
+              Eats for Business
+            </a>
+            <a href="#" class="flex items-center hover:text-red-600 transition-colors text-base">
+              <font-awesome-icon icon="fa-solid fa-recycle" class="mr-3 w-5" />
+              Plastic recycling
+            </a>
+          </div>
+          
+          <div class="space-y-4">
+            <a href="#" class="flex items-center hover:text-red-600 transition-colors text-base">
+              <font-awesome-icon icon="fa-solid fa-mobile-screen" class="mr-3 w-5" />
+              KFC App
+            </a>
+            <a href="#" class="flex items-center hover:text-red-600 transition-colors text-base">
+              <font-awesome-icon icon="fa-solid fa-comment-dots" class="mr-3 w-5" />
               Feedback
             </a>
           </div>
         </div>
+      </div>
 
-        <!-- Author Info -->
-        <div class="mt-6 md:mt-0 text-center md:text-right">
-          <p class="mb-2 text-gray-500">&copy; 2025 KFC. All rights reserved.</p>
-          <a
-            href="https://dhruba-datta.netlify.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="inline-flex items-center gap-2 bg-gray-200 hover:bg-gray-300 text-gray-700 px-3 py-1.5 rounded-full transition"
-          >
-            Created by 
-            <font-awesome-icon icon="fa-solid fa-user" />
-            Dhruba Datta
-           </a>
+      <!-- Footer Bottom -->
+      <div class="pt-8 border-t border-gray-200">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="flex items-center mb-5 md:mb-0">
+            <font-awesome-icon icon="fa-solid fa-copyright" class="text-gray-400 mr-3 text-lg" />
+            <span class="text-gray-500 text-lg">2025 KFC LLC. All rights reserved.</span>
+          </div>
+          
+          <div class="flex items-center space-x-6">
+            <a href="https://dhruba-datta.netlify.app/" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="text-gray-500 hover:text-gray-700 transition-colors flex items-center text-lg">
+              <font-awesome-icon icon="fa-solid fa-code" class="mr-2 text-xl" />
+              <span class="hidden sm:inline">Created by <span class="font-bold text-red-500">Dhruba Datta</span></span>
+              <span class="sm:hidden  text-red-600">Dhruba Datta</span>
+            </a>
+          </div>
         </div>
       </div>
     </div>
@@ -44,6 +91,6 @@
 
 <script>
 export default {
-  name: 'Footer',
+  name: 'ModernFooter',
 }
 </script>

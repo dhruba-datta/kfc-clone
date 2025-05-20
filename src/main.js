@@ -17,8 +17,28 @@ import {
   faTrash,
   faBars,
   faTimes,
+  // Add new icons for footer
+  faBuilding,
+  faFileSignature,
+  faAddressBook,
+  faTruck,
+  faQuestionCircle,
+  faHandshake,
+  faBicycle,
+  faBriefcase,
+  faRecycle,
+  faMobileScreen,
+  faCommentDots,
+  faCopyright,
+  faCode,
 } from "@fortawesome/free-solid-svg-icons";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import {
+  faGithub,
+  // Add brand icons for footer
+  faFacebookF,
+  faInstagram,
+  faTwitter,
+} from "@fortawesome/free-brands-svg-icons";
 import { cartStore } from "./store/cart";
 import Cookies from "js-cookie";
 
@@ -35,7 +55,24 @@ library.add(
   faTrash,
   faGithub,
   faBars,
-  faTimes
+  faTimes,
+  // Add new icons to library
+  faBuilding,
+  faFileSignature,
+  faAddressBook,
+  faTruck,
+  faQuestionCircle,
+  faHandshake,
+  faBicycle,
+  faBriefcase,
+  faRecycle,
+  faMobileScreen,
+  faCommentDots,
+  faCopyright,
+  faCode,
+  faFacebookF,
+  faInstagram,
+  faTwitter
 );
 
 const app = createApp(App);
