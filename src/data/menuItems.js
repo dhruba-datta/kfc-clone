@@ -6,7 +6,7 @@ export const menuItems = [
     name: "12 PC Hot & Crispy Chicken Bucket",
     category: "Chicken",
     price: 1799,
-    image: "src/assets/chicken/01.webp",
+    image: "/assets/chicken/01.webp",
     popular: true,
   },
   {
@@ -14,7 +14,7 @@ export const menuItems = [
     name: "10 Pc Leg Bucket Meal",
     category: "Chicken",
     price: 1699,
-    image: "src/assets/chicken/02.webp",
+    image: "/assets/chicken/02.webp",
     savePercentage: 28,
   },
   {
