@@ -42,27 +42,27 @@
             </div>
           </div>
 
-          <!-- Address Button -->
+          <!-- Address Button - Mobile Optimized -->
           <button 
             @click="openAddressPopup"
-            class="flex items-center space-x-2 text-sm text-gray-800 hover:text-red-600 bg-gray-50 hover:bg-red-50 px-4 py-2.5 rounded-lg transition-colors duration-150 w-[200px]"
+            class="flex items-center space-x-1 text-sm text-gray-800 hover:text-red-600 bg-gray-50 hover:bg-red-50 px-2 py-2 md:px-4 md:py-2.5 rounded-lg transition-colors duration-150 w-[140px] md:w-[200px]"
           >
-            <font-awesome-icon icon="fa-solid fa-location-dot" class="h-4 w-4 text-red-600" />
-            <span class="truncate">{{ deliveryAddress || 'Enter delivery address' }}</span>
+            <font-awesome-icon icon="fa-solid fa-location-dot" class="h-4 w-4 text-red-600 flex-shrink-0" />
+            <span class="truncate text-xs md:text-sm">{{ deliveryAddress || 'Enter address' }}</span>
           </button>
         </div>
 
         <!-- Right - Language & Login -->
         <div class="flex items-center space-x-2">
-          <!-- Language Selector -->
+          <!-- Language Selector - Icon only on mobile -->
           <div class="relative">
             <button 
               @click="showLanguageDropdown = !showLanguageDropdown"
-              class="flex items-center space-x-2 text-sm text-gray-800 hover:text-red-600 bg-gray-50 hover:bg-red-50 px-4 py-2.5 rounded-lg transition-colors duration-150"
+              class="flex items-center space-x-2 text-sm text-gray-800 hover:text-red-600 bg-gray-50 hover:bg-red-50 p-2 md:px-4 md:py-2.5 rounded-lg transition-colors duration-150"
             >
               <font-awesome-icon icon="fa-solid fa-globe" class="h-4 w-4 text-red-600" />
-              <span>EN</span>
-              <font-awesome-icon icon="fa-solid fa-chevron-down" class="h-3 w-3 ml-1 text-gray-400" />
+              <span class="hidden md:inline">EN</span>
+              <font-awesome-icon icon="fa-solid fa-chevron-down" class="h-3 w-3 ml-1 text-gray-400 hidden md:inline" />
             </button>
 
             <!-- Dropdown -->
@@ -86,9 +86,9 @@
           </div>
 
           <!-- Login Button -->
-          <button class="flex items-center space-x-2 text-sm text-gray-800 hover:text-red-600 bg-gray-50 hover:bg-red-50 px-4 py-2.5 rounded-lg transition-colors duration-150">
+          <button class="flex items-center space-x-2 text-sm text-gray-800 hover:text-red-600 bg-gray-50 hover:bg-red-50 p-2 md:px-4 md:py-2.5 rounded-lg transition-colors duration-150">
             <font-awesome-icon icon="fa-solid fa-user" class="h-4 w-4 text-red-600" />
-            <span>Login</span>
+            <span class="hidden sm:inline">Login</span>
           </button>
         </div>
       </div>
