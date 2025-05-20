@@ -11,14 +11,14 @@
 
     <!-- Product Details -->
     <h3 class="text-lg font-bold text-center mb-1 relative z-10">{{ item.name }}</h3>
-    <p class="text-red-600 font-semibold mb-2 relative z-10">{{ item.price.toFixed(2) }}₸</p>
+    <p class="text-red-600 font-semibold mb-2 relative z-10">$ {{ item.price.toFixed(2) }}</p>
 
     <!-- Add to Cart / Counter -->
     <div class="w-full relative z-10">
       <div v-if="itemCount > 0" class="flex items-center justify-center space-x-2 mb-2">
         <button @click="decreaseCount" class="bg-gray-200 text-red-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-300 transition">-</button>
         <span class="text-lg font-semibold">{{ itemCount }}</span>
-        <button @click="increaseCount" class="bg-gray-200 text-red-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-300 transition">+</button>
+        <button @click="addToCart" class="bg-gray-200 text-red-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-300 transition">+</button>
       </div>
       <button
         v-else
@@ -32,41 +32,35 @@
 </template>
 
 <script>
+import { inject, computed } from 'vue';
+
 export default {
   props: {
     item: Object
   },
-  data() {
-    return {
-      itemCount: 0
-    }
-  },
-  methods: {
-    addToCart() {
-      this.itemCount++
-      this.updateCart()
-    },
-    increaseCount() {
-      this.itemCount++
-      this.updateCart()
-    },
-    decreaseCount() {
-      if (this.itemCount > 0) {
-        this.itemCount--
-        this.updateCart()
+  setup(props) {
+    const cartStore = inject('cartStore');
+
+    // Compute the number of this item in the cart
+    const itemCount = computed(() => {
+      return cartStore.getItems().filter(cartItem => cartItem.id === props.item.id).length;
+    });
+
+    // Add item to cart
+    const addToCart = () => {
+      cartStore.addItem(props.item);
+    };
+
+    // Decrease item count (remove one instance)
+    const decreaseCount = () => {
+      const items = cartStore.getItems();
+      const index = items.findIndex(cartItem => cartItem.id === props.item.id);
+      if (index !== -1) {
+        cartStore.removeItem(index);
       }
-    },
-    updateCart() {
-      const cart = JSON.parse(localStorage.getItem('cart') || '[]')
-      // Remove existing instances of this item
-      const filteredCart = cart.filter(item => item.id !== this.item.id)
-      // Add updated quantity
-      for (let i = 0; i < this.itemCount; i++) {
-        filteredCart.push({ ...this.item })
-      }
-      localStorage.setItem('cart', JSON.stringify(filteredCart))
-      this.$emit('add-to-cart', this.item)
-    }
+    };
+
+    return { itemCount, addToCart, decreaseCount };
   }
 }
 </script>

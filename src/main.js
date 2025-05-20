@@ -18,6 +18,7 @@ import {
   faTrash,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { cartStore } from "./store/cart";
 
 library.add(
   faUser,
@@ -35,4 +36,5 @@ library.add(
 
 const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);
+app.provide("cartStore", cartStore); // Provide cart store to all components
 app.use(router).mount("#app");
