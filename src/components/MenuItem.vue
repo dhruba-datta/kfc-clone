@@ -1,32 +1,65 @@
 <template>
-  <div class="bg-white rounded-lg shadow-md hover:shadow-lg transition p-4 flex flex-col items-center relative overflow-hidden">
-    <!-- Background Decoration -->
-    <div class="absolute top-0 left-0 w-1/2 h-1/2 bg-red-500 opacity-10 transform -rotate-45"></div>
-    <div class="absolute bottom-0 right-0 w-1/2 h-1/2 bg-white opacity-20 transform rotate-45"></div>
-
+  <div class="bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden flex flex-col h-full border border-gray-100">
     <!-- Product Image -->
-    <div class="w-full h-40 bg-gray-200 rounded mb-3 flex items-center justify-center relative z-10">
-      <span class="text-gray-400">Image</span>
+    <div class="relative aspect-square overflow-hidden">
+      <img 
+        :src="item.image" 
+        :alt="item.name" 
+        class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+      >
     </div>
 
-    <!-- Product Details -->
-    <h3 class="text-lg font-bold text-center mb-1 relative z-10">{{ item.name }}</h3>
-    <p class="text-red-600 font-semibold mb-2 relative z-10">$ {{ item.price.toFixed(2) }}</p>
-
-    <!-- Add to Cart / Counter -->
-    <div class="w-full relative z-10">
-      <div v-if="itemCount > 0" class="flex items-center justify-center space-x-2 mb-2">
-        <button @click="decreaseCount" class="bg-gray-200 text-red-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-300 transition">-</button>
-        <span class="text-lg font-semibold">{{ itemCount }}</span>
-        <button @click="addToCart" class="bg-gray-200 text-red-600 w-8 h-8 rounded-full flex items-center justify-center hover:bg-gray-300 transition">+</button>
+    <!-- Product Content -->
+    <div class="p-4 flex flex-col flex-grow">
+      <!-- Price at the top -->
+      <div class="mb-2">
+        <span class="text-2xl font-extrabold text-kfcRed">${{ item.price.toFixed(2) }}</span>
+        <span v-if="item.originalPrice" class="text-sm text-gray-400 line-through ml-2">${{ item.originalPrice.toFixed(2) }}</span>
       </div>
-      <button
-        v-else
-        @click="addToCart"
-        class="w-full bg-gray-200 text-gray-800 py-2 px-4 rounded hover:bg-gray-300 transition flex items-center justify-center"
-      >
-        <span>+ Add</span>
-      </button>
+
+      <!-- Product Name and Description -->
+      <div class="mb-4">
+        <h3 class="text-lg font-bold text-gray-900">{{ item.name }}</h3>
+        <p class="text-gray-500 text-sm mt-1 line-clamp-2">{{ item.description }}</p>
+      </div>
+
+      <!-- Add to Cart Button at Bottom -->
+      <div class="mt-auto pt-2">
+        <transition name="fade" mode="out-in">
+          <button
+            v-if="itemCount === 0"
+            key="add"
+            @click.stop="addToCart"
+            class="w-full py-2 px-4 bg-kfcRed hover:bg-red-700 text-white font-medium rounded-lg transition-colors"
+          >
+            Add to Cart
+          </button>
+
+          <div
+            v-else
+            key="quantity"
+            class="flex items-center justify-between bg-gray-100 rounded-lg p-1"
+          >
+            <button
+              @click.stop="decreaseCount"
+              class="w-9 h-9 flex items-center justify-center rounded-full hover:bg-gray-200 transition-colors"
+            >
+              <span class="text-kfcRed text-lg font-bold">−</span>
+            </button>
+            
+            <span class="text-gray-700 font-medium mx-1 min-w-[20px] text-center">
+              {{ itemCount }}
+            </span>
+            
+            <button
+              @click.stop="addToCart"
+              class="w-9 h-9 flex items-center justify-center rounded-full bg-kfcRed hover:bg-red-700 transition-colors"
+            >
+              <span class="text-white text-lg font-bold">+</span>
+            </button>
+          </div>
+        </transition>
+      </div>
     </div>
   </div>
 </template>
@@ -36,22 +69,22 @@ import { inject, computed } from 'vue';
 
 export default {
   props: {
-    item: Object
+    item: {
+      type: Object,
+      required: true
+    }
   },
   setup(props) {
     const cartStore = inject('cartStore');
 
-    // Compute the number of this item in the cart
     const itemCount = computed(() => {
       return cartStore.getItems().filter(cartItem => cartItem.id === props.item.id).length;
     });
 
-    // Add item to cart
     const addToCart = () => {
       cartStore.addItem(props.item);
     };
 
-    // Decrease item count (remove one instance)
     const decreaseCount = () => {
       const items = cartStore.getItems();
       const index = items.findIndex(cartItem => cartItem.id === props.item.id);
@@ -66,20 +99,36 @@ export default {
 </script>
 
 <style scoped>
-@media (max-width: 767px) {
-  .w-full {
-    width: 100%;
-  }
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.15s ease, transform 0.15s ease;
 }
 
-/* Ensure text and elements are above the background decoration */
-.relative.z-10 {
-  position: relative;
-  z-index: 10;
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+  transform: translateY(5px);
 }
 
-/* Style the background decoration to match the image's red/white theme */
-.absolute {
-  z-index: 0;
+/* Smooth transitions for interactive elements */
+button {
+  transition: all 0.15s ease;
+}
+
+/* Consistent rounded corners */
+.rounded-xl {
+  border-radius: 0.75rem;
+}
+
+/* Image hover effect */
+img {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+/* Price emphasis */
+.text-2xl {
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 </style>
