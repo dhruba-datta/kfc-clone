@@ -1,39 +1,20 @@
-// File: src/store/cart.js
 import { reactive } from "vue";
 import Cookies from "js-cookie";
 
-// Initialize cart from cookies or empty array
-const cart = reactive({
-  items: JSON.parse(Cookies.get("cart") || "[]"),
-});
-
-// Save cart to cookies with 7-day expiry
-const saveCart = () => {
-  Cookies.set("cart", JSON.stringify(cart.items), { expires: 7 });
-};
-
-export const cartStore = {
-  // Add item to cart
+export const cartStore = reactive({
+  items: Cookies.get("cart") ? JSON.parse(Cookies.get("cart")) : [],
   addItem(item) {
-    cart.items.push({ ...item });
-    saveCart();
+    this.items.push(item);
+    Cookies.set("cart", JSON.stringify(this.items), { expires: 7 });
   },
-  // Remove item at index
   removeItem(index) {
-    cart.items.splice(index, 1);
-    saveCart();
+    this.items.splice(index, 1);
+    Cookies.set("cart", JSON.stringify(this.items), { expires: 7 });
   },
-  // Clear cart
-  clearCart() {
-    cart.items = [];
-    saveCart();
-  },
-  // Get cart items
   getItems() {
-    return cart.items;
+    return this.items;
   },
-  // Get total price
   getTotalPrice() {
-    return cart.items.reduce((sum, item) => sum + item.price, 0);
+    return this.items.reduce((total, item) => total + item.price, 0);
   },
-};
+});

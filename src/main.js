@@ -1,4 +1,3 @@
-// File: src/main.js
 import { createApp } from "vue";
 import App from "./App.vue";
 import router from "./router";
@@ -16,9 +15,12 @@ import {
   faFlag,
   faShoppingCart,
   faTrash,
+  faBars,
+  faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { cartStore } from "./store/cart";
+import Cookies from "js-cookie";
 
 library.add(
   faUser,
@@ -31,10 +33,12 @@ library.add(
   faFlag,
   faShoppingCart,
   faTrash,
-  faGithub
+  faGithub,
+  faBars,
+  faTimes
 );
 
 const app = createApp(App);
 app.component("font-awesome-icon", FontAwesomeIcon);
-app.provide("cartStore", cartStore); // Provide cart store to all components
+app.provide("cartStore", cartStore);
 app.use(router).mount("#app");
