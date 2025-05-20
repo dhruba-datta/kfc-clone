@@ -25,8 +25,8 @@
           <div>
             <h4 class="text-lg font-semibold text-gray-800">{{ item.name }}</h4>
             <p class="text-sm text-gray-500">
-              ${{ item.price.toFixed(2) }} × {{ item.quantity }} =
-              <span class="font-medium text-gray-700">${{ (item.price * item.quantity).toFixed(2) }}</span>
+              ৳{{ item.price.toFixed(2) }} × {{ item.quantity }} =
+              <span class="font-medium text-gray-700">৳{{ (item.price * item.quantity).toFixed(2) }}</span>
             </p>
           </div>
           <button
@@ -39,7 +39,7 @@
 
         <div class="border-t pt-4 text-right">
           <span class="text-lg font-bold text-gray-800">
-            Total: ${{ groupedTotal.toFixed(2) }}
+            Total: ৳{{ groupedTotal.toFixed(2) }}
           </span>
         </div>
       </div>

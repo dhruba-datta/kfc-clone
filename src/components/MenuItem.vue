@@ -13,8 +13,8 @@
     <div class="p-4 flex flex-col flex-grow">
       <!-- Price at the top -->
       <div class="mb-2">
-        <span class="text-2xl font-extrabold text-kfcRed">${{ item.price.toFixed(2) }}</span>
-        <span v-if="item.originalPrice" class="text-sm text-gray-400 line-through ml-2">${{ item.originalPrice.toFixed(2) }}</span>
+        <span class="text-2xl font-extrabold text-kfcRed">৳{{ item.price.toFixed(2) }}</span>
+        <span v-if="item.originalPrice" class="text-sm text-gray-400 line-through ml-2">৳{{ item.originalPrice.toFixed(2) }}</span>
       </div>
 
       <!-- Product Name and Description -->

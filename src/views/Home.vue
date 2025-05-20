@@ -63,12 +63,12 @@ export default {
     Cart
   },
   data() {
-    return {
-      activeSection: '',
-      categories: ['Buckets', 'Burgers', 'Fries', 'Drinks', 'Desserts'],
-      menuItems: menuItems
-    };
-  },
+  return {
+    activeSection: '',
+    categories: ['Chicken', 'Deals', 'Burgers', 'Box Meals', 'Snacks', 'Beverages', 'Dips'],
+    menuItems: menuItems
+  };
+},
   setup() {
     const cartStore = inject('cartStore');
     return {
@@ -95,15 +95,17 @@ export default {
       this.activeSection = current;
     },
     getCategoryIcon(category) {
-      const icons = {
-        Buckets: 'drumstick-bite',
-        Burgers: 'hamburger',
-        Fries: 'french-fries',
-        Drinks: 'mug-soda',
-        Desserts: 'ice-cream'
-      };
-      return ['fas', icons[category] || 'utensils'];
-    }
+    const icons = {
+      Chicken: 'drumstick',
+      Deals: 'tags',
+      Burgers: 'hamburger',
+      'Box Meals': 'box-open',
+      Snacks: 'cookie-bite',
+      Beverages: 'glass-water',
+      Dips: 'bowl-spoon'
+    };
+    return ['fas', icons[category] || 'utensils'];
+  }
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
