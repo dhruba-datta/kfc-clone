@@ -24,7 +24,23 @@
     </aside>
 
     <!-- Main Content -->
-    <main class="flex-1 p-4 space-y-12 pt-24 lg:pt-4">
+    <main class="flex-1 p-4 space-y-12 pt-0 lg:pt-4">
+      <!-- Hero Section -->
+      <section class="relative w-full h-[200px] md:h-[300px] rounded-xl overflow-hidden shadow-lg scroll-mt-20">
+        <img
+          src="../assets/hero.jpg"
+          alt="KFC Hero Banner"
+          class="w-full h-full object-cover object-center"
+        />
+        <div class="absolute inset-0 bg-black bg-opacity-40 flex flex-col items-center justify-center text-center px-4">
+          <h1 class="text-2xl md:text-4xl font-bold text-white mb-4 tracking-tight">Craving KFC?</h1>
+          <p class="text-base md:text-lg text-white max-w-md">
+            Satisfy your hunger with our delicious chicken, burgers, and more!
+          </p>
+        </div>
+      </section>
+
+      <!-- Category Sections -->
       <section v-for="category in categories" :key="category" :id="category" class="scroll-mt-20">
         <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ category }}</h2>
         <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
