@@ -27,14 +27,7 @@
               icon="fa-solid fa-magnifying-glass" 
               class="absolute left-3 top-3.5 h-4 w-4 text-gray-400"
             />
-            <div v-if="filteredItems.length > 0" class="absolute top-full left-0 w-full bg-white border border-gray-200 mt-1 rounded-lg shadow-lg z-50">
-              <ul>
-                <li v-for="item in filteredItems" :key="item.id" class="px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer">
-                  {{ item.name }} - ${{ item.price }}
-                </li>
-              </ul>
             </div>
-          </div>
 
           <button 
             @click="openAddressPopup"
@@ -113,14 +106,7 @@
             />
           </div>
 
-          <div v-if="filteredItems.length > 0" class="max-h-64 overflow-y-auto border border-gray-200 rounded-lg">
-            <ul>
-              <li v-for="item in filteredItems" :key="item.id" class="px-4 py-2 text-sm hover:bg-gray-100 cursor-pointer">
-                {{ item.name }} - ${{ item.price }}
-              </li>
-            </ul>
           </div>
-        </div>
       </div>
 
       <div 
@@ -191,7 +177,7 @@
 
 <script>
 import Cookies from 'js-cookie';
-import { menuItems } from '../data/menuItems.js';
+// Removed menuItems import as filtering is now handled in Home.vue
 import L from 'leaflet';
 import axios from 'axios';
 import 'leaflet/dist/leaflet.css';
@@ -208,14 +194,13 @@ export default {
       showLanguageDropdown: false,
       showAddressPopup: false,
       showSearchPopup: false,
-      showUnderDevelopmentPopup: false, // New data property for the under development popup
+      showUnderDevelopmentPopup: false,
       tempAddress: '',
       deliveryAddress: '',
-      searchQuery: '',
+      searchQuery: '', // This will hold the search term
       debounceTimeout: null,
       addressDebounceTimeout: null,
-      menuItems: menuItems,
-      filteredItems: [],
+      // Removed filteredItems as search results are displayed on Home page
       map: null,
       marker: null
     };
@@ -233,13 +218,13 @@ export default {
     },
     openSearchPopup() {
       this.showSearchPopup = true;
-      this.searchQuery = '';
-      this.filteredItems = [];
+      this.searchQuery = ''; // Clear search query when opening popup
+      this.$emit('update-search', ''); // Emit empty search to clear results on Home page
     },
     closeSearchPopup() {
       this.showSearchPopup = false;
-      this.searchQuery = '';
-      this.filteredItems = [];
+      this.searchQuery = ''; // Clear search query when closing popup
+      this.$emit('update-search', ''); // Emit empty search to clear results on Home page
     },
     openAddressPopup() {
       this.showAddressPopup = true;
@@ -261,17 +246,12 @@ export default {
       Cookies.set('deliveryAddress', this.deliveryAddress, { expires: 7 });
       this.closeAddressPopup();
     },
+    // Debounced function to emit search query to parent
     debouncedSearch() {
       clearTimeout(this.debounceTimeout);
       this.debounceTimeout = setTimeout(() => {
-        if (this.searchQuery) {
-          this.filteredItems = this.menuItems.filter(item =>
-            item.name.toLowerCase().includes(this.searchQuery.toLowerCase())
-          );
-        } else {
-          this.filteredItems = [];
-        }
-      }, 300);
+        this.$emit('update-search', this.searchQuery); // Emit the search query to parent
+      }, 300); // 300ms debounce time
     },
     debouncedSearchAddress() {
       clearTimeout(this.addressDebounceTimeout);

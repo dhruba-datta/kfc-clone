@@ -1,6 +1,5 @@
 <template>
   <div class="flex flex-col lg:flex-row min-h-screen bg-yandexLight">
-    <!-- Modern Sticky Menu Sidebar (Desktop) -->
     <aside class="hidden lg:block lg:w-[14%] sticky top-20 h-screen overflow-y-auto z-40">
       <nav class="bg-gradient-to-br from-white via-gray-100 to-gray-200 p-6 rounded-r-3xl shadow-xl h-full">
         <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b border-gray-300 pb-3 tracking-wide">Menu</h3>
@@ -23,9 +22,7 @@
       </nav>
     </aside>
 
-    <!-- Main Content -->
-    <main class="flex-1 p-4 space-y-12 pt-0 lg:pt-4">
-      <!-- Hero Section -->
+    <main class="flex-1 p-4 space-y-12 pt-24 lg:pt-24 overflow-y-auto"> 
       <section class="relative w-full h-[200px] md:h-[300px] rounded-xl overflow-hidden shadow-lg scroll-mt-20">
         <img
           src="../assets/hero.jpg"
@@ -40,8 +37,24 @@
         </div>
       </section>
 
-      <!-- Category Sections -->
-      <section v-for="category in categories" :key="category" :id="category" class="scroll-mt-20">
+      <section v-if="searchQuery && filteredSearchResults.length > 0">
+        <h2 class="text-2xl font-bold mb-4 text-gray-800">Search Results for "{{ searchQuery }}"</h2>
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
+          <MenuItem
+            v-for="item in filteredSearchResults"
+            :key="item.id"
+            :item="item"
+          />
+        </div>
+      </section>
+
+      <section v-else-if="searchQuery && filteredSearchResults.length === 0" class="text-center py-10">
+        <font-awesome-icon icon="fa-solid fa-face-sad-tear" class="text-gray-400 text-6xl mb-4" />
+        <h2 class="text-2xl font-bold text-gray-700 mb-2">No results found for "{{ searchQuery }}"</h2>
+        <p class="text-gray-500">Please try a different search term or browse our categories.</p>
+      </section>
+
+      <section v-else v-for="category in categories" :key="category" :id="category" class="scroll-mt-20">
         <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ category }}</h2>
         <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
           <MenuItem
@@ -53,23 +66,38 @@
       </section>
     </main>
 
-    <!-- Sticky Cart Sidebar (Desktop) -->
     <Cart class="hidden lg:block lg:w-1/4 sticky top-20 h-screen overflow-y-auto bg-kfcWhite shadow-inner p-4 z-40" />
 
-    <!-- Mobile Cart Button -->
     <button
       class="lg:hidden fixed bottom-4 right-4 bg-kfcRed text-kfcWhite p-4 rounded-full shadow-lg hover:bg-red-700 transition z-50"
-      @click="$emit('open-cart')"
+      @click="showMobileCart = true"
     >
       <font-awesome-icon icon="fa-solid fa-shopping-cart" class="h-6 w-6" />
       <span v-if="cartItems.length" class="absolute -top-2 -right-2 bg-kfcWhite text-kfcRed rounded-full px-2 text-sm">{{ cartItems.length }}</span>
     </button>
+
+    <div 
+      v-if="showMobileCart" 
+      class="fixed inset-0 bg-black bg-opacity-50 z-[9999] flex items-end lg:hidden"
+      @click.self="showMobileCart = false"
+    >
+      <div class="bg-kfcWhite w-full h-3/4 rounded-t-xl shadow-lg p-4 relative flex flex-col">
+        <button 
+          @click="showMobileCart = false" 
+          class="absolute top-4 right-4 text-gray-600 hover:text-gray-800 z-10"
+        >
+          <font-awesome-icon icon="fa-solid fa-times" class="h-6 w-6" />
+        </button>
+        <h2 class="text-2xl font-bold mb-4 text-gray-800">Your Cart</h2>
+        <Cart class="flex-1 overflow-y-auto" /> 
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
 import MenuItem from '../components/MenuItem.vue';
-import Cart from './Cart.vue';
+import Cart from './Cart.vue'; // Assuming Cart.vue is in the same directory or correctly imported
 import { menuItems } from '../data/menuItems';
 import { inject } from 'vue';
 
@@ -78,11 +106,19 @@ export default {
     MenuItem,
     Cart
   },
+  // Props received from parent (e.g., App.vue)
+  props: {
+    searchQuery: {
+      type: String,
+      default: ''
+    }
+  },
   data() {
     return {
       activeSection: '',
       categories: ['Chicken', 'Deals', 'Burgers', 'Box Meals', 'Snacks', 'Beverages', 'Dips'],
-      menuItems: menuItems
+      menuItems: menuItems,
+      showMobileCart: false // New data property for mobile cart visibility
     };
   },
   setup() {
@@ -91,12 +127,26 @@ export default {
       cartItems: cartStore.getItems()
     };
   },
+  computed: {
+    // Computed property to filter menu items based on the search query
+    filteredSearchResults() {
+      if (!this.searchQuery) {
+        return []; // Return empty if no search query
+      }
+      const query = this.searchQuery.toLowerCase();
+      return this.menuItems.filter(item =>
+        item.name.toLowerCase().includes(query)
+      );
+    }
+  },
   methods: {
+    // Filters items by category when no search query is active
     filteredItems(category) {
       return this.menuItems.filter(item => item.category === category);
     },
     scrollToSection(category) {
       const el = document.getElementById(category);
+      // Adjusted scroll-margin-top to account for header height
       if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     },
     handleScroll() {
@@ -104,7 +154,8 @@ export default {
       let current = '';
       for (const cat of this.categories) {
         const section = document.getElementById(cat);
-        if (section && section.offsetTop <= scrollY + 100) {
+        // Adjust offset for sticky header
+        if (section && section.offsetTop <= scrollY + 100) { 
           current = cat;
         }
       }
@@ -125,7 +176,7 @@ export default {
   },
   mounted() {
     window.addEventListener('scroll', this.handleScroll);
-    this.handleScroll();
+    this.handleScroll(); // Call on mount to set initial active section
   },
   beforeUnmount() {
     window.removeEventListener('scroll', this.handleScroll);
@@ -135,6 +186,6 @@ export default {
 
 <style scoped>
 .scroll-mt-20 {
-  scroll-margin-top: 80px;
+  scroll-margin-top: 80px; /* Adjust for fixed header height */
 }
 </style>
