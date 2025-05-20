@@ -1,22 +1,25 @@
 <template>
   <div class="flex flex-col lg:flex-row min-h-screen bg-yandexLight">
-    <!-- Sticky Category Menu (Desktop) -->
-    <aside class="hidden lg:block lg:w-1/5 sticky top-20 h-screen overflow-y-auto shadow-lg z-40">
-      <nav class="bg-gradient-to-br from-kfcWhite to-gray-100 p-6 rounded-r-2xl h-full">
-        <h3 class="text-xl font-semibold text-gray-800 mb-6 border-b border-gray-200 pb-2">Categories</h3>
-        <div class="space-y-3">
-          <button
-            v-for="cat in categories"
-            :key="cat"
-            @click="scrollToSection(cat)"
-            :class="[
-              'block w-full text-left font-medium text-gray-700 px-4 py-2 rounded-lg transition-all duration-200',
-              activeSection === cat ? 'bg-kfcRed text-kfcWhite shadow-md transform scale-105' : 'hover:bg-gray-200 hover:text-gray-900'
-            ]"
-          >
-            {{ cat }}
-          </button>
-        </div>
+    <!-- Modern Sticky Menu Sidebar (Desktop) -->
+    <aside class="hidden lg:block lg:w-1/5 sticky top-20 h-screen overflow-y-auto z-40">
+      <nav class="bg-gradient-to-br from-white via-gray-100 to-gray-200 p-6 rounded-r-3xl shadow-xl h-full">
+        <h3 class="text-2xl font-bold text-gray-800 mb-6 border-b border-gray-300 pb-3 tracking-wide">Menu</h3>
+        <ul class="space-y-3">
+          <li v-for="cat in categories" :key="cat">
+            <button
+              @click="scrollToSection(cat)"
+              :class="[
+                'flex items-center gap-3 w-full text-left font-semibold px-4 py-3 rounded-xl transition-all duration-300',
+                activeSection === cat 
+                  ? 'bg-kfcRed text-white shadow-lg scale-[1.03]' 
+                  : 'text-gray-700 hover:bg-gray-300/60 hover:text-black'
+              ]"
+            >
+              <font-awesome-icon :icon="getCategoryIcon(cat)" class="w-5 h-5" />
+              <span>{{ cat }}</span>
+            </button>
+          </li>
+        </ul>
       </nav>
     </aside>
 
@@ -90,6 +93,16 @@ export default {
         }
       }
       this.activeSection = current;
+    },
+    getCategoryIcon(category) {
+      const icons = {
+        Buckets: 'drumstick-bite',
+        Burgers: 'hamburger',
+        Fries: 'french-fries',
+        Drinks: 'mug-soda',
+        Desserts: 'ice-cream'
+      };
+      return ['fas', icons[category] || 'utensils'];
     }
   },
   mounted() {
