@@ -27,7 +27,7 @@
     <main class="flex-1 p-4 space-y-12 pt-24 lg:pt-4">
       <section v-for="category in categories" :key="category" :id="category" class="scroll-mt-20">
         <h2 class="text-2xl font-bold mb-4 text-gray-800">{{ category }}</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-6">
+        <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-4">
           <MenuItem
             v-for="item in filteredItems(category)"
             :key="item.id"
@@ -122,4 +122,3 @@ export default {
   scroll-margin-top: 80px;
 }
 </style>
-s
